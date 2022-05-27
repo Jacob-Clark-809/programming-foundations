@@ -1,0 +1,24 @@
+Given a collection of strings.
+
+Iterate through the collection one by one
+  - save first value to a variable
+  - for each iteration add that string to the end of the variable
+
+Return the saved value
+
+FORMAL
+
+START
+
+# Given a collection of strings called "words"
+
+SET iterator = 1
+SET sentence = ""
+
+WHILE iterator <= length of "words"
+  SET sentence = sentence + value in words at space "iterator"
+  iterator = iterator + 1
+
+PRINT sentence
+
+END

@@ -1,0 +1,30 @@
+Given collection of integers.
+
+Iterate through collection one by one
+  - skip to next iteration on odd iterations
+  - save current value to array
+
+Return saved array
+
+FORMAL
+
+START
+
+# Given collection of integers called "numbers"
+
+iterator = 1
+new_array = []
+
+WHILE iterator <= length of numbers
+  SET current_number = value within numbers at space iterator
+  IF iterator is even
+    go to next iteration
+  ELSE
+    add current_number to new_array
+  
+  iterator = iterator + 1
+  
+PRINT new_array
+
+END
+    

@@ -1,0 +1,33 @@
+Given character to search for and string
+
+Iterate over the characters in string
+  - Check if the current character is equal to the character we are searching for
+  - If equal add one to the count of that character
+  - If count of character is equal to three return current index and exit loop
+
+If count = 3 output saved index
+If count < 3 output nil
+
+FORMAL
+
+START
+
+# Given a string "word" and character "char"
+
+SET iterator = 1
+SET count = 0
+
+WHILE iterator <= length of word
+  IF character in word at position iterator = char
+    count = count + 1
+  IF count = 3
+    exit loop
+  iterator = iterator + 1
+  
+IF count = 3
+  PRINT count
+ELSE
+  PRINT nil
+
+END
+  

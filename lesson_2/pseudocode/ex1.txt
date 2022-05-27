@@ -1,0 +1,14 @@
+# Get integer 1 from user
+# Get integer 2 from user
+# Add integer 1 and integer 2 together
+# Display the result
+
+FORMAL
+
+GET int1
+GET int2
+
+SET result = int1 + int2
+
+PRINT result
+

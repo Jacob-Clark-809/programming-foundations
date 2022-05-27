@@ -1,0 +1,25 @@
+Given two arrays
+
+Iterate over elements of one array
+  - Add current element of first array to saved array
+  - Add current element of second array to saved array
+
+Return saved arrray
+
+FORMAL
+
+START
+
+# Given array_1 and array_2
+
+SET iterator = 1
+SET new_array = []
+
+WHILE iterator <= length of array_1
+  add element of array_1 at position iterator to new_array
+  add element of array_2 at position iterator to new_array
+  iterator = iterator + 1
+
+PRINT new_array
+
+END
