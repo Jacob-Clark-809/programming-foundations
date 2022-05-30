@@ -1,13 +1,17 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+VALID_CHOICES = [['rock', 'paper', 'scissors', 'lizard', 'spock'], \
+                 ['r', 'p', 'sc', 'l', 'sp']]
+WINNING_COMBINATIONS = { rock: ['scissors', 'lizard'], \
+                         paper: ['rock', 'spock'], \
+                         scissors: ['paper', 'lizard'], \
+                         lizard: ['spock', 'paper'], \
+                         spock: ['rock', 'scissors'] }
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def win?(first, second)
-  (first == 'rock' && second == 'scissors') ||
-    (first == 'papaer' && second == 'rock') ||
-    (first == 'scissors' && second == 'paper')
+  WINNING_COMBINATIONS[first.to_sym].include?(second)
 end
 
 def display_results(player, computer)
@@ -21,23 +25,42 @@ def display_results(player, computer)
 end
 
 loop do
-  choice = nil
+  prompt("Best of three!")
+  player_count = 0
+  computer_count = 0
   loop do
-    prompt("Choose one: #{VALID_CHOICES.join(', ')}")
-    choice = Kernel.gets().chomp()
+    choice = nil
+    loop do
+      prompt("Choose one: #{VALID_CHOICES[0].join(', ')}")
+      choice = Kernel.gets().chomp()
 
-    if VALID_CHOICES.include?(choice)
+      if VALID_CHOICES[0].include?(choice)
+        break
+      elsif VALID_CHOICES[1].include?(choice)
+        choice = VALID_CHOICES[0][VALID_CHOICES[1].index(choice)]
+        break
+      else
+        prompt("That's not a valid chocie.")
+      end
+    end
+
+    computer_choice = VALID_CHOICES[0].sample
+
+    prompt("You chose #{choice}; computer chose #{computer_choice}")
+
+    display_results(choice, computer_choice)
+
+    player_count += 1 if win?(choice, computer_choice)
+    computer_count += 1 if win?(computer_choice, choice)
+    prompt("Player score: #{player_count}, computer score: #{computer_count}")
+    if player_count == 3
+      prompt("You won the best of three!")
       break
-    else
-      prompt("That's not a valid chocie.")
+    elsif computer_count == 3
+      prompt("You lost the best of three!")
+      break
     end
   end
-
-  computer_choice = VALID_CHOICES.sample
-
-  prompt("You chose #{choice}; computer chose #{computer_choice}")
-
-  display_results(choice, computer_choice)
 
   prompt("Do you want to play again?")
   answer = Kernel.gets().chomp()
