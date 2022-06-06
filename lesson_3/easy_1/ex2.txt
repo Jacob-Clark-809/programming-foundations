@@ -1,0 +1,23 @@
+! is the NOT operator. It converts true to false and vice versa.
+? is the ternary operator. It takes three operands: the first is a
+conditional that determines which of the following two operands will be
+executed.
+
+1. != is the not equal to operator and should be used when we want to
+compare two values to see if they're equal, getting false if they are
+and true if they're not.
+
+2. !user_name will give true if user_name is false or nil; it will give
+false in all other cases.
+
+3. In the case of words.uniq! uniq! is just a method call and the ! is
+not being used as the NOT operator. Normally when a method ends with ! it
+signifies that the method mutates the caller.
+
+4 + 5. The ternary operator is used as such:
+condition ? eval if true : eval if false
+The statement "condition" before the ? is evaluated as a boolean and
+determines which of the statements following the ? is run.
+
+6. Putting !! before something will evaluate it as a boolean, all truthy
+values will evaluate as true, otherwise false.
